@@ -14,17 +14,17 @@ $ docker exec -it enpsapi_web_1 /bin/sh
 
 /app # python
 
-from app import db
+>>> from app import db
 
-from app.models import User
+>>> from app.models import User
 
-u = User(username='administrator', email='engstaff@rnntv.com')
+>>> u = User(username='administrator', email='engstaff@rnntv.com')
 
-5: $ u.set_password('ENTER PASSWORD')
+>>> u.set_password('ENTER PASSWORD')
 
-6: $ u.check_password('ENTER PASSWORD') ... should return true
+>>> u.check_password('ENTER PASSWORD') ... should return true
 
-7: $ db.session.add(u)
+>>> db.session.add(u)
 
-8: $ db.session.commit()
+>>> db.session.commit()
 ```
