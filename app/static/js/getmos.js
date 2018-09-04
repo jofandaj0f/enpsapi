@@ -15,6 +15,7 @@ function logon(serviceAddress, userName, password, domainName, devKey) {
       console.log(err);
     }
   });
+  console.log("Logged In");
   return callPromise.promise();
 }
 

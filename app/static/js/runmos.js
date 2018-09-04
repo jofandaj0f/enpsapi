@@ -9,18 +9,20 @@ function findMOS(zone) {
     datatype: 'json',
     contentType: 'application/json'
   }).done(function(data) {
+    // console.log(data);
     logon(data["url"], data["name"], data["password"], data["enps"], data["key"]).done(function(data) {
       var loginID = data["SessionID"];
-      Search(data["url"], loginID, "WRNN-ENPS1", zone).done(function(data) {
+
+      Search("http://192.168.100.95/NOMWebServices3API", loginID, "WRNN-ENPS1", zone).done(function(data) {
         // console.log(data['SearchResults'].length, ' ', data['SearchResults']);
         var rundowns = [];
-        console.log('Search Results: ', data['SearchResults']);
-        console.log('Length of Search Results: ', data['SearchResults'].length);
+        // console.log('Search Results: ', data['SearchResults']);
+        console.log('Checking Rundowns totaling: ', data['SearchResults'].length);
         for (var i = 0; i < data['SearchResults'].length; i++) {
           // console.log(z);
           var z = data['SearchResults'][i];
-          console.log('FieldValue: ', z.ObjectProperties[10].FieldValue);
-          console.log('GUID: ', z.ListData.Guid);
+          // console.log('FieldValue: ', z.ObjectProperties[10].FieldValue);
+          // console.log('GUID: ', z.ListData.Guid);
           if (z.ObjectProperties[10].FieldValue) {
             var runObj = {
               database: z.ListData.ENPSDatabase,
