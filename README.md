@@ -1,6 +1,8 @@
 # ENPS Open API interaction via Flask
 
 #### Deploying via Docker
+Open Terminal and Enter the following commands: 
+
 ```
 $ docker-compose build
 $ docker-compose up -d 
@@ -9,6 +11,8 @@ $ docker-compose up -d
 
 #### Configuring the Web Server post Docker Deployment
 Steps sourced from: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database Migrating dbs requires viewing this page. 
+
+Open Terminal and Enter the Following commands:
 ```
 $ docker exec -it enpsapi_web_1 /bin/sh
 
