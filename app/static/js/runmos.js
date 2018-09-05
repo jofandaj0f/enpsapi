@@ -44,23 +44,18 @@ function findMOS(zone) {
             $('#listData').append('<div class="panel-body"><h3>' + name + '</h3></div>');
             for (var k = 0; k < data[i].CollectionScripts.length; k++) {
               var drop = data[i].CollectionScripts[k].RecordPointer.ObjectProperties.length;
-              // console.log('46: ',i);
-              // console.log('47: ',k);
-              if (drop > 33) {
-                var val = data[i].CollectionScripts[k].RecordPointer.ObjectProperties[34];
-                if (val.FieldValue.constructor !== Array) {
-                  if (val.FieldName === "MOSAbstracts") {
-                    var title;
-                    var mossy = data[i].CollectionScripts[k].RecordPointer.ObjectProperties[34].FieldValue;
-                    if (data[i].CollectionScripts[k].RecordPointer.ObjectProperties[42].FieldName === "Title") {
-                      title = data[i].CollectionScripts[k].RecordPointer.ObjectProperties[42].FieldValue;
-                    } else if (data[i].CollectionScripts[k].RecordPointer.ObjectProperties[43].FieldName === "Title") {
-                      title = data[i].CollectionScripts[k].RecordPointer.ObjectProperties[43].FieldValue;
-                    }
+              for (var j = 0; j < drop; j++){
+                if (data[i].CollectionScripts[k].RecordPointer.ObjectProperties[j].FieldName === "MOSAbstracts") {
+                  var title = "MOS ID";
+                  var mossy = data[i].CollectionScripts[k].RecordPointer.ObjectProperties[j].FieldValue;
+                  // if (data[i].CollectionScripts[k].RecordPointer.ObjectProperties[42].FieldName === "Title") {
+                  //   title = data[i].CollectionScripts[k].RecordPointer.ObjectProperties[42].FieldValue;
+                  // } else if (data[i].CollectionScripts[k].RecordPointer.ObjectProperties[43].FieldName === "Title") {
+                  //   title = data[i].CollectionScripts[k].RecordPointer.ObjectProperties[43].FieldValue;
+                  // }
+                  if (mossy.length < 12){
                     $('#listData').append('<div class="panel-body"><h4>' + mossy + '</h4> : ' + title + '</div>');
                   }
-                } else if (val.constructor === Array) {
-                  console.log(val[0]);
                 }
               }
             }
