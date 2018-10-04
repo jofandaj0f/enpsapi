@@ -15,7 +15,6 @@ function logon(serviceAddress, userName, password, domainName, devKey) {
       console.log(err);
     }
   });
-  console.log("Logged In");
   return callPromise.promise();
 }
 
@@ -79,7 +78,7 @@ function Search(serviceAddress, nomTokenId, database, location) {
 };
 
 function getMultiplePlanningContent(nomTokenId, recs) {
-  console.log(recs);
+  console.log('82: ' + recs);
   if(recs === undefined || recs === null || recs.length === 0) {
     alert('There are no activated rundowns on this Fios zone');
     location.reload();
